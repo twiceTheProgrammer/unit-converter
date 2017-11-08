@@ -4,46 +4,72 @@
     <meta charset="utf-8">
     <title>Unit Converter</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
   </head>
   <body>
       <div class="container">
          <div class="row">
             <div class="col-sm-6">
-              <h3 class="display-4 text-center">Distance Converter</h3>
+              <h3 class="display-5 text-center">Distance Converter</h3>
               <form>
-                <div class="form-group">
-                   <input class="form-control form-control-lg" type="text" placeholder="meter">
-                </div>
-                <div class="form-group">
-                   <input class="form-control form-control-lg" type="text" placeholder="meter">
-                </div>
-                <div class="form-group">
-                   <input class="form-control form-control-lg" type="text" placeholder="meter">
-                </div>
-                <div class="form-group">
-                   <input class="form-control form-control-lg" type="text" placeholder="meter">
-                </div>
-                <div class="form-group">
-                   <input class="form-control form-control-lg" type="text" placeholder="meter">
-                </div>
-                <div class="form-group">
-                   <input class="form-control form-control-lg" type="text" placeholder="meter">
-                </div>
-                <div class="form-group">
-                   <input class="form-control form-control-lg" type="text" placeholder="meter">
-                </div>
-                <div class="form-group">
-                   <input class="form-control form-control-lg" type="text" placeholder="meter">
-                </div>
-                <div class="form-group">
-                   <input class="form-control form-control-lg" type="text" placeholder="meter">
-                </div>
+                <input type="number" placeholder="Enter meter distance..." class="form-control form-control-lg" id="meter-input">
               </form>
+              <br>
+              <div id="result">
+                <div class="card bg-warning mb-1">
+                  <div class="card-block">
+                    <h4>Kilometer</h4>
+                    <div id="kilometer-result"></div>
+                  </div>
+                </div>
+                <div class="card bg-primary mb-1">
+                  <div class="card-block">
+                    <h4>Centimeter</h4>
+                    <div id="centimeter-result"></div>
+                  </div>
+                </div>
+                <div class="card bg-success mb-1">
+                  <div class="card-block">
+                    <h4>Millimeter</h4>
+                    <div id="millimeter-result"></div>
+                  </div>
+                </div>
+                <div class="card bg-secondary mb-1">
+                  <div class="card-block">
+                    <h4>Mile</h4>
+                    <div id="mile-result"></div>
+                  </div>
+                </div>
+                <div class="card bg-danger mb-1">
+                  <div class="card-block">
+                    <h4>Inch</h4>
+                    <div id="inch-result"></div>
+                  </div>
+                </div>
+                <div class="card bg-primary mb-1">
+                  <div class="card-block">
+                    <h4>Foot </h4>
+                    <div id="foot-result"></div>
+                  </div>
+                </div>
+              </div>
             </div>
          </div>
       </div>
   </body>
+  <script type="text/javascript">
+    function fetchElement(id){
+      return document.getElementById(id);
+    }
+    let meterInput = fetchElement('meter-input');
+    meterInput.addEventListener('input' , function(e){
+        let userInput = e.target.value ;
+        fetchElement('kilometer-result').innerHTML = ( userInput / 1000 ).toFixed(2);
+        fetchElement('centimeter-result').innerHTML = ( userInput * 100 ).toFixed(2);
+        fetchElement('mile-result').innerHTML = ( userInput / 1609 ).toFixed(2);
+        fetchElement('millimeter-result').innerHTML = ( userInput / 1000 ).toFixed(2);
+        fetchElement('foot-result').innerHTML = ( userInput / 1000 ).toFixed(2);
+        fetchElement('inch-result').innerHTML = ( userInput / 1000 ).toFixed(2);
+    });
+  </script>
 </html>
-<script type="text/javascript">
-
-</script>
